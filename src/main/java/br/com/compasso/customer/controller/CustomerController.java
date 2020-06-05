@@ -33,7 +33,7 @@ public class CustomerController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(customerEntity);
 	}
 	
-	@GetMapping(value = { "/v1/customer" }, produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = { "/v1/customer/{id}" }, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<CustomerEntity> getCustomer(@PathVariable Integer id) {
 		log.debug("CustomerController - getCustomer - start. id: {}", id);
 		CustomerEntity customerEntity = customerService.getCustomer(id);
