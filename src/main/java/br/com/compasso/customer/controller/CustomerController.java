@@ -48,7 +48,7 @@ public class CustomerController {
 	}
 	
 	@PutMapping(value = { "/v1//customer/{id}" }, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CustomerEntity> udpateCustomer(@PathVariable Integer id, @Valid @RequestBody CustomerDTO customerDto) {
+	public ResponseEntity<CustomerEntity> updateCustomer(@PathVariable Integer id, @Valid @RequestBody CustomerDTO customerDto) {
 		log.info("CustomerController - udpateCustomer - start. cpf: {}", customerDto.getCpf());
 		CustomerEntity customerEntity = customerService.update(id, customerDto);
 		return ResponseEntity.status(HttpStatus.OK).body(customerEntity);
