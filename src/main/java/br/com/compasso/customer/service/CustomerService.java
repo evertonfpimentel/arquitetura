@@ -34,6 +34,7 @@ public class CustomerService extends BaseService {
 		log.info("CustomerService - update - id: {}", id);
 		CustomerEntity customerEntity = findCustomerById(id);
 		modelMapper.map(customerDto, CustomerEntity.class);
+		customerEntity.setId(id);
 		customerRepositoy.save(customerEntity);
 		log.debug("CustomerService - update - success. id: {}", id, customerEntity.getName());
 		return customerEntity;
